@@ -444,6 +444,30 @@ footer { background: #030303; border-top: 1px solid var(--line); }
   .filter-row { gap: 32px; }
 }
 
+/* Keep the editorial story media fully visible on ultra-wide desktop displays. */
+@media (min-width: 1600px) {
+  .story-media-item img,
+  .story-media-item video {
+    object-fit: contain;
+    object-position: center center;
+  }
+
+  .our-story-media {
+    max-height: 80vh;
+    overflow: hidden;
+  }
+
+  .story-modal-scroll {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .story-media-item:hover img,
+  .story-media-item:hover video {
+    transform: none;
+  }
+}
+
 @media (max-width: 600px) {
   .hero { height: auto; min-height: 776px; }
   .hero-content { margin-top: 28px; }
