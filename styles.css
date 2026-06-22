@@ -444,22 +444,19 @@ footer { background: #030303; border-top: 1px solid var(--line); }
   .filter-row { gap: 32px; }
 }
 
-/* Keep the editorial story media fully visible on ultra-wide desktop displays. */
+/* Keep the existing story grid intact while preventing ultra-wide media cropping. */
 @media (min-width: 1600px) {
   .story-media-item img,
   .story-media-item video {
+    width: 100%;
+    height: 100%;
     object-fit: contain;
     object-position: center center;
   }
 
-  .our-story-media {
-    max-height: 80vh;
+  .story-media-item {
     overflow: hidden;
-  }
-
-  .story-modal-scroll {
-    max-width: 1400px;
-    margin: 0 auto;
+    background: #000;
   }
 
   .story-media-item:hover img,
