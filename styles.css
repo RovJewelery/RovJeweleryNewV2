@@ -444,24 +444,20 @@ footer { background: #030303; border-top: 1px solid var(--line); }
   .filter-row { gap: 32px; }
 }
 
-/* Keep the existing story grid intact while preventing ultra-wide media cropping. */
+/* Keep the existing story grid intact while reducing ultra-wide media zoom. */
 @media (min-width: 1600px) {
   .story-media-item img,
   .story-media-item video {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
     object-position: center center;
-  }
-
-  .story-media-item {
-    overflow: hidden;
-    background: #000;
+    transform: scale(.92);
   }
 
   .story-media-item:hover img,
   .story-media-item:hover video {
-    transform: none;
+    transform: scale(.92);
   }
 }
 
