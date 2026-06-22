@@ -332,9 +332,36 @@ footer { background: #030303; border-top: 1px solid var(--line); }
   h1 { font-size: clamp(70px, 24vw, 100px); }
   .hero-actions { flex-direction: column; align-items: stretch; max-width: 280px; }
   .hero-stamp { width: 80px; height: 80px; right: 20px; bottom: 60px; }
+  /* Decorative glyphs can fall back to emoji/placeholder symbols on mobile browsers. */
+  .hero-stamp::before, .hero-stamp::after { display: none; }
   .hero-stamp span { font-size: 20px; }
   .scroll-cue { display: none; }
-  .hero-story-trigger { font-size: 8px; }
+  .hero-story-trigger {
+    width: 100%;
+    max-width: 280px;
+    min-height: 50px;
+    margin-top: 12px;
+    padding: 0 25px;
+    border: 1px solid rgba(255,255,255,.3);
+    background: transparent;
+    color: var(--cream);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: .17em;
+    transition: .35s ease;
+  }
+  .hero-story-trigger:hover, .hero-story-trigger:focus-visible, .hero-story-trigger:active {
+    border-color: var(--gold);
+    color: var(--gold-light);
+    transform: translateY(-2px);
+  }
+  /* Keep the mobile CTA labels clean where arrow glyphs are unsupported. */
+  .hero-actions .button span, .hero-story-trigger span { display: none; }
   .story-modal { inset: 0; border: 0; }
   .story-modal-scroll { padding: 78px 20px 36px; }
   .story-modal-close { position: fixed; top: 16px; right: 16px; }
@@ -353,6 +380,7 @@ footer { background: #030303; border-top: 1px solid var(--line); }
   .filter-scroll.hint-dismissed::after, .filter-scroll.hint-dismissed .filter-scroll-hint { opacity: 0; }
   .filter-scroll-hint { display: block; position: absolute; right: 7px; top: -24px; color: rgba(241,212,123,.72); text-transform: uppercase; letter-spacing: .18em; font-size: 7px; pointer-events: none; transition: opacity .25s ease; }
   .filter-scroll-hint::after { content: " ↔"; }
+  .filter-scroll-hint { display: none; }
   .filter-row { gap: 28px; scrollbar-width: none; padding-right: 66px; }
   .filter-row::-webkit-scrollbar { display: none; }
   .product-grid { grid-template-columns: 1fr 1fr; gap: 40px 10px; }
@@ -425,6 +453,7 @@ footer { background: #030303; border-top: 1px solid var(--line); }
   .hero-copy { margin: 24px 0 28px; font-size: 14px; line-height: 1.65; }
   .hero-actions { width: 100%; max-width: none; }
   .hero-actions .button { width: 100%; }
+  .hero-story-trigger { max-width: none; }
   .hero-stamp { bottom: 36px; }
   .product-grid { grid-template-columns: minmax(0, 1fr); gap: 42px; }
   .product-image { height: auto; aspect-ratio: 4 / 5; }
